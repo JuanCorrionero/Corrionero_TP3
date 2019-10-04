@@ -49,7 +49,7 @@ namespace Negocio
             }
             finally
             {
-                // conexion.Close();
+               //  conexion.Close();
             }
         }
 

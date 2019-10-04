@@ -9,20 +9,31 @@ namespace Negocio
 {
     public class VouchersNegocio
     {
+        // Funcion para validar voucher
         public bool ValidarVoucher(string voucherWeb)
         {
-            bool leyo = true;
-             while (leyo)
+            //Obtengo el string del voucher que ingrese el usuario, instancio datos
+            AccesoDatos datos = new AccesoDatos();
+            try
             {
-                Vouchers aux = new Vouchers();
-                aux = LeerVoucher();
-                if(aux.CodigoVoucher = voucherWeb)
-                {
-                    return true;
-                }
-                leyo = false;
+                // Selecciono el codigo del voucher, con filtro del voucher que ingresa el usuario.
+                datos.setearQuery("Select Id, CodigoVoucher, Estado from Vouchers where codigoVoucher = @voucher");
+                datos.agregarParametro("voucher", voucherWeb);
+                datos.ejecutarLector();
+                if (datos.lector.Read())
+                return true;    
+                else return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
         public Vouchers LeerVoucher()
