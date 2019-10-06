@@ -78,6 +78,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="PasoDos.aspx" />
+    <Content Include="PasoTres.aspx" />
     <Content Include="PasoUno.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="PasoDos.aspx.designer.cs">
       <DependentUpon>PasoDos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasoTres.aspx.cs">
+      <DependentUpon>PasoTres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PasoTres.aspx.designer.cs">
+      <DependentUpon>PasoTres.aspx</DependentUpon>
     </Compile>
     <Compile Include="PasoUno.aspx.cs">
       <DependentUpon>PasoUno.aspx</DependentUpon>
