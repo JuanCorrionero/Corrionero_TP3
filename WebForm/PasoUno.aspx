@@ -15,11 +15,13 @@
             <span> 
                 <asp:Button ID="btnValidar" href="" CssClass="btn btn-outline-primary" runat="server" Text="Validar" OnClick="btnValidar_Click" />
             </span>
-            <div class="row">
-                <div class="col-5 m-3">
-                     <asp:Label ID="lblError" Text="" cssClass="" runat="server" />
+                <div class="col-6 m-3">
+                    <div class="row">
+            <span>
+                     <asp:Label ID="lblError" Text="" cssClass="" runat="server"></asp:Label>
+            </span>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
 </asp:Content>

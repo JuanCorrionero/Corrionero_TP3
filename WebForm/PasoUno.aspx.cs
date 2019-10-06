@@ -29,7 +29,7 @@ namespace WebForm
             {
                 // Si no existe o está usado, muestro labels de error y pongo la textbox vacía.
                 txtVoucher.Text = "";
-                lblError.Text = "Error al validar tu voucher, Reintente";
+                lblError.Text = "Reintente";
                 lblError.CssClass = "alert alert-danger";
             }
         }

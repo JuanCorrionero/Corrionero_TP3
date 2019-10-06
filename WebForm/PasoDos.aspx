@@ -9,5 +9,25 @@
   <p class="mb-0">Ahora lo que resta es elegir un premio para participar!</p>
 </div>
 
+    <div class="card-columns" style="margin-left: 10px; margin-right: 10px;">
+
+        <%-- Codigo c# --%>
+        <% foreach (var item in ListaProductos)
+            { %>
+  <div class="card">
+    <img src="<%= item.UrlImagen %>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= item.Titulo %></h5>
+      <p class="card-text"><%= item.Descripcion %></p>
+    </div>
+       <%--<a class="btn btn-primary" href="PokemonDetail.aspx?idpkm=<% = item.Id.ToString() %>">Seleccionar</a>--%>
+      </div>
+            
+           <% } %>
+
+        </div>  
+
+
+
 
 </asp:Content>
