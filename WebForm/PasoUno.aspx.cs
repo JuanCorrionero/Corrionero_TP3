@@ -27,11 +27,12 @@ namespace WebForm
             }
             else
             {
-                // Si no existe o está usado, muestro labels de error y pongo la textbox vacía.
-                txtVoucher.Text = "";
-                lblError.Text = "Reintente";
-                lblError.CssClass = "alert alert-danger";
+                Session["Error" + Session.SessionID] = "Tu voucher es incorrecto o ya está en uso, intentelo de nuevo.";
+                Response.Redirect("PaginaError.aspx");
             }
-        }
+               
+            
+            
+            }
     }
 }

@@ -77,6 +77,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="PaginaError.aspx" />
     <Content Include="PasoDos.aspx" />
     <Content Include="PasoTres.aspx" />
     <Content Include="PasoUno.aspx" />
@@ -124,6 +125,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaError.aspx.cs">
+      <DependentUpon>PaginaError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaError.aspx.designer.cs">
+      <DependentUpon>PaginaError.aspx</DependentUpon>
     </Compile>
     <Compile Include="PasoDos.aspx.cs">
       <DependentUpon>PasoDos.aspx</DependentUpon>
