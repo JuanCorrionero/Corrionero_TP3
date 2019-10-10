@@ -14,7 +14,7 @@
             <tr>
                 
                 <td> <asp:TextBox ID="txtDni" CssClass="form-control mb-2" placeholder="DNI" runat="server"></asp:TextBox>  </td>
-                <td> <asp:Button ID="btnVerificar" CssClass="btn btn-outline-primary" style="margin-bottom: 6px;" runat="server" Text="Verificar" /> </td>
+                <td> <asp:Button ID="btnVerificar" CssClass="btn btn-outline-primary" style="margin-bottom: 6px;" runat="server" Text="Verificar" OnClick="btnVerificar_Click" /> </td>
                 
                 
             </tr>
@@ -60,7 +60,7 @@
     </div>
 
     <div style="margin-left: 128px; margin-top: 15px;">
-        <asp:Button ID="btnAceptar" CssClass="btn btn-outline-primary" runat="server" Text="Aceptar" />
+        <asp:Button ID="btnAceptar" CssClass="btn btn-outline-primary" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
     </div>
 
 </asp:Content>

@@ -10,10 +10,11 @@ namespace Negocio
     public class VouchersNegocio
     {
         // Funcion para validar voucher
-        public bool ValidarVoucher(string voucherWeb)
+        public Vouchers ValidarVoucher(string voucherWeb)
         {
             //Obtengo el string del voucher que ingrese el usuario, instancio datos
             AccesoDatos datos = new AccesoDatos();
+            Vouchers voucher = new Vouchers();
             try
             {
                 // Selecciono el codigo del voucher, con filtro del voucher que ingresa el usuario.
@@ -21,8 +22,18 @@ namespace Negocio
                 datos.agregarParametro("voucher", voucherWeb);
                 datos.ejecutarLector();
                 if (datos.lector.Read())
-                return true;    
-                else return false;
+                {
+
+                    voucher.Id = datos.lector.GetInt64(0);
+                    voucher.CodigoVoucher = datos.lector.GetString(1);
+                    voucher.Estado = datos.lector.GetBoolean(2);
+
+                }    
+                else
+                {
+                    voucher = null;
+                }
+                return voucher;
             }
             catch (Exception ex)
             {
@@ -58,6 +69,35 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+        }
+
+
+        public void ConsumirVoucher(string productoID, long idCliente, Vouchers voucherWeb)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+
+            datos.setearQuery("update Vouchers set Estado = 1, IdCliente = @idCliente, IdProducto = @idProducto, FechaRegistro = GETDATE() where Id = @idVoucher");
+            datos.comando.Parameters.Clear();
+            datos.agregarParametro("@idCliente", idCliente);
+            datos.agregarParametro("@idProducto", Convert.ToInt64(productoID));
+            datos.agregarParametro("@idVoucher", voucherWeb.Id);
+            datos.ejecutarAccion();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+
+            datos.cerrarConexion();
             }
         }
     }

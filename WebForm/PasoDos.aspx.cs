@@ -17,25 +17,7 @@ namespace WebForm
         {
             ProductosNegocio negocio = new ProductosNegocio();
             ListaProductos = negocio.listar();
-
-            {
-                //Productos prodAuricular = new Productos();
-                //Productos prodCombo = new Productos();
-                //Productos prodMochila = new Productos();
-                //prodAuricular = negocio.cargarAuricular();
-                //prodCombo = negocio.cargarCombo();
-                //prodMochila = negocio.cargarMochila();
-                //imgAuricular.DescriptionUrl = prodAuricular.Descripcion;
-                //imgAuricular.ImageUrl = prodAuricular.UrlImagen;
-
-
-                //imgCombo.DescriptionUrl = prodCombo.Descripcion;
-                //imgCombo.ImageUrl = prodCombo.UrlImagen;
-
-                //imgMochila.DescriptionUrl = prodMochila.Descripcion;
-                //imgMochila.ImageUrl = prodMochila.UrlImagen;
-            } // codigo innecesario
-            
+                        
         }
 
     }

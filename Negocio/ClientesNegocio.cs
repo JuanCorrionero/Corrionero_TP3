@@ -52,9 +52,42 @@ namespace Negocio
                 throw ex;
             }
 
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
 
-        public void cargarCliente(Clientes clienteWeb)
+        public long BuscarIdCliente(int dni)
+        {
+                AccesoDatos datos = new AccesoDatos();
+                Clientes cliente = new Clientes();
+            try
+            {
+                datos.setearQuery("Select Id from Clientes @dni = DNI");
+                datos.comando.Parameters.Clear();
+                datos.agregarParametro("@dni", dni);
+                datos.ejecutarLector();
+                if (datos.lector.Read())
+                    return cliente.Id;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+                throw ex;
+            }
+            
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return -1;
+        }
+
+        public void AltaCliente(Clientes clienteWeb)
         {
             // Instancio al cliente.
             AccesoDatos datos = new AccesoDatos();
@@ -62,7 +95,9 @@ namespace Negocio
             try
             {
 
+                // Hago el insert a partir del objeto cliente que traigo de la pagina WEB.
             datos.setearQuery("Insert into Clientes values(@DNI,@Nombre,@Apellido,@Email,@Direccion,@Ciudad,@CodigoPostal,GETDATE())");
+                // Agrego los parametros para adentrarlos en el insert.
             datos.comando.Parameters.Clear();
             datos.agregarParametro("@DNI", clienteWeb.Dni);
             datos.agregarParametro("@Nombre", clienteWeb.Nombre);
@@ -71,7 +106,7 @@ namespace Negocio
             datos.agregarParametro("@Direccion", clienteWeb.Direccion);
             datos.agregarParametro("@Ciudad", clienteWeb.Ciudad);
             datos.agregarParametro("@CodigoPostal", clienteWeb.CodigoPostal);
-
+                // Ejecuta la accion que es una "NO QUERY" - "NO CONSULTA".-
             datos.ejecutarAccion();
 
             }
@@ -79,6 +114,11 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
             }
             
         }

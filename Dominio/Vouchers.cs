@@ -8,11 +8,11 @@ namespace Dominio
 {
     public class Vouchers
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string CodigoVoucher { get; set; }
         public bool Estado { get; set; }
-        public int IdCliente { get; set; }
-        public int IdProducto { get; set; }
+        public long IdCliente { get; set; }
+        public long IdProducto { get; set; }
         public DateTime FechaRegistro { get; set; }
 
     }
