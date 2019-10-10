@@ -88,7 +88,7 @@ namespace WebForm
                 }
                 voucherNegocio.ConsumirVoucher(idProducto, idCliente, voucherWeb);
                 Session.Add("MailCliente", cliente.Email);
-                Response.Redirect("PaginaConfirmacion");
+                Response.Redirect("PaginaConfirmacion.aspx");
             }
 
         }

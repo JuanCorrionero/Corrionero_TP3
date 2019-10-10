@@ -65,11 +65,12 @@ namespace Negocio
                 Clientes cliente = new Clientes();
             try
             {
-                datos.setearQuery("Select Id from Clientes @dni = DNI");
+                datos.setearQuery("Select Id from Clientes where @dni = DNI");
                 datos.comando.Parameters.Clear();
                 datos.agregarParametro("@dni", dni);
                 datos.ejecutarLector();
                 if (datos.lector.Read())
+                    cliente.Id = datos.lector.GetInt64(0);
                     return cliente.Id;
             }
             catch (Exception ex)

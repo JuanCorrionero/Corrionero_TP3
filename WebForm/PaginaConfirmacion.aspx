@@ -9,9 +9,9 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="pie" runat="server">
 <div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Voucher verificado!</h4>
-  <p>Tu voucher ha sido validado con éxito!</p>
+  <h4 class="alert-heading">Gracias por participar!</h4>
+  <p>Tu datos fueron procesados con éxito!</p>
   <hr>
-  <p class="mb-0">Ahora lo que resta es elegir un premio para participar!</p>
+  <p class="mb-0">Te enviamos un mail con la confirmacion!</p>
 </div>
 </asp:Content>
